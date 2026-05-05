@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Search Books</title>
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav>
+<div class="logo">Reading Portfolio</div>
+<div>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="library.html">Library</a>
+<a href="search.html">Search</a>
+<a href="style-guide.html">Style Guide</a>
+</div>
+</nav>
+
+<div class="container">
+
+<section class="hero">
+<div>
+<p class="eyebrow">Book API Search</p>
+<h1>Search for new books</h1>
+<p class="hero-text">
+This page uses a book API so users can search for real books by title or author. This adds more interaction to the website and makes the project stronger than a static page.
+</p>
+</div>
+
+<div class="hero-card">
+<h2>Try searching</h2>
+<p>Examples: Hunger Games, Colleen Hoover, The Love Hypothesis, Jane Austen</p>
+</div>
+</section>
+
+<form id="searchForm" class="search-form">
+<input id="searchInput" placeholder="Search books...">
+<button type="submit">Search</button>
+</form>
+
+<div id="results" class="grid"></div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Reading Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --lavender: #E6E6FA;
+            --mint: #F0FFF0;
+            --peach: #FFDAB9;
+            --blush: #FFE4E1;
+            --dark-text: #4A4A4A;
+            --white: #ffffff;
+            --shadow: 0 8px 30px rgba(0,0,0,0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fbfbfb;
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #9b8edb; /* Lavender accent */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: #9b8edb;
+        }
+
+        /* Sections Visibility */
+        section {
+            display: none;
+            padding: 100px 10% 60px;
+            min-height: 100vh;
+            animation: fadeIn 0.5s ease;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--lavender), var(--mint));
+            border-radius: 30px;
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .hero-text { max-width: 50%; }
+        .hero-text h1 { font-size: 3rem; margin-bottom: 1rem; }
+        
+        /* Grid System */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Genre Colors */
+        .romance { background: var(--blush); }
+        .dystopian { background: var(--lavender); }
+        .realistic { background: var(--mint); }
+
+        /* Style Guide Page */
+        .color-swatch {
+            width: 100px;
+            height: 100px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Reader.Log</div>
+        <div class="nav-links">
+            <a onclick="showSection('home')">Home</a>
+            <a onclick="showSection('about')">About</a>
+            <a onclick="showSection('library')">Library</a>
+            <a onclick="showSection('style')">Style Guide</a>
+        </div>
+    </nav>
+
+    <section id="home" class="active">
+        <div class="hero">
+            <div class="hero-text">
+                <h1>Lost in the pages of a new world.</h1>
+                <p>Welcome to my personal reading portfolio. Here I track my journeys through dystopian futures, soft romances, and everything in between.</p>
+            </div>
+            <div class="featured-book">
+                <div class="card">
+                    <span class="badge dystopian">Currently Reading</span>
+                    <h3>The Hunger Games</h3>
+                    <p>Suzanne Collins</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About My Reading</h2>
+        <div class="card" style="margin-top: 2rem;">
+            <p>I started this portfolio to document the 50+ books I read every year. My favorite genres include <b>Dystopian</b> for the thrill and <b>Romance</b> for the cozy vibes. I believe every book leaves a fingerprint on your soul.</p>
+        </div>
+    </section>
+
+    <section id="library">
+        <h2>My Library</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="badge romance">Romance</span>
+                <h3>Beach Read</h3>
+                <p>Emily Henry</p>
+            </div>
+            <div class="card">
+                <span class="badge dystopian">Dystopian</span>
+                <h3>Red Rising</h3>
+                <p>Pierce Brown</p>
+            </div>
+            <div class="card">
+                <span class="badge realistic">Realistic Fiction</span>
+                <h3>Tomorrow, and Tomorrow, and Tomorrow</h3>
+                <p>Gabrielle Zevin</p>
+            </div>
+            <div class="card">
+                <span class="badge romance">Romance</span>
+                <h3>The Love Hypothesis</h3>
+                <p>Ali Hazelwood</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="style">
+        <h2>Style Guide</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="color-swatch" style="background: var(--lavender);"></div>
+                <p>Lavender (#E6E6FA)</p>
+            </div>
+            <div class="card">
+                <div class="color-swatch" style="background: var(--mint);"></div>
+                <p>Mint (#F0FFF0)</p>
+            </div>
+            <div class="card">
+                <div class="color-swatch" style="background: var(--peach);"></div>
+                <p>Peach (#FFDAB9)</p>
+            </div>
+            <div class="card">
+                <div class="color-swatch" style="background: var(--blush);"></div>
+                <p>Blush Pink (#FFE4E1)</p>
+            </div>
+        </div>
+        <div class="card" style="margin-top: 2rem;">
+            <h3>Typography</h3>
+            <p style="font-family: 'Poppins'; font-size: 1.5rem;">Poppins - Headings</p>
+            <p style="font-family: 'Inter';">Inter - Body text for maximum readability.</p>
+        </div>
+    </section>
+
+    <div class="footer">
+        &copy; 2024 Reading Portfolio | Built with love and caffeine.
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show target section
+            const target = document.getElementById(sectionId);
+            target.classList.add('active');
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
